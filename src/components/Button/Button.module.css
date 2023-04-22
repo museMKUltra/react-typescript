@@ -1,0 +1,16 @@
+.btn {
+    padding: 4px 8px;
+    border: none;
+}
+
+.btn-primary {
+    background: aquamarine;
+}
+
+.btn-secondary {
+    background: aliceblue;
+}
+
+.btn-danger {
+    background: palevioletred;
+}
