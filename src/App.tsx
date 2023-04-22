@@ -2,6 +2,7 @@ import { BsAlarmFill } from 'react-icons/bs'
 import ListGroup from './components/ListGroup'
 import Button from './components/Button'
 import './App.css'
+import Like from './components/Like'
 
 function App() {
 	return (
@@ -14,6 +15,9 @@ function App() {
 			/>
 			<div>
 				<BsAlarmFill />
+			</div>
+			<div>
+				<Like onClick={() => console.log('like')} />
 			</div>
 		</>
 	)
