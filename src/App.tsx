@@ -28,6 +28,8 @@ function App() {
 		setSelectedItem(item)
 	}
 
+	const isAllCategories = selectedItem === 'All categories'
+
 	return (
 		<div className="p-4">
 			<Form addItem={addItem} />
@@ -38,7 +40,13 @@ function App() {
 					changeItem={changeItem}
 				/>
 				<div className="mt-3">
-					<List items={items} />
+					<List
+						items={
+							isAllCategories
+								? items
+								: items.filter(item => item.category === selectedItem)
+						}
+					/>
 				</div>
 			</div>
 		</div>
