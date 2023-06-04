@@ -1,30 +1,22 @@
-import { useState } from 'react'
 import { FieldValues } from 'react-hook-form'
 
-const categories = [
-	'All categories',
-	'Groceries',
-	'Utilities',
-	'Entertainment',
-] as const
+interface Props {
+	list: readonly string[]
+	selectedItem: string
+	changeItem: (item: string) => void
+}
 
-function Filter() {
-	const [selectedCategory, setSelectedCategory] = useState(categories[0])
-
+function Filter({ list, changeItem, selectedItem }: Props) {
 	function onChange(data: FieldValues) {
-		setSelectedCategory(data.currentTarget.value)
+		changeItem(data.currentTarget.value)
 	}
 
 	return (
 		<div>
-			<select
-				className="form-select"
-				onChange={onChange}
-				value={selectedCategory}
-			>
-				{categories.map(category => (
-					<option key={category} value={category}>
-						{category}
+			<select className="form-select" onChange={onChange} value={selectedItem}>
+				{list.map(item => (
+					<option key={item} value={item}>
+						{item}
 					</option>
 				))}
 			</select>
