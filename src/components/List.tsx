@@ -8,9 +8,10 @@ interface Item {
 
 interface Props {
 	items: Item[]
+	deleteItem: (description: string) => void
 }
 
-function List({ items }: Props) {
+function List({ items, deleteItem }: Props) {
 	const total = items.reduce(
 		(total: number, item: Item) => item.amount + total,
 		0
@@ -33,7 +34,15 @@ function List({ items }: Props) {
 						<td>{item.description}</td>
 						<td>{priceFormat(item.amount)}</td>
 						<td>{item.category}</td>
-						<td>Delete</td>
+						<td>
+							<button
+								type="button"
+								className="btn btn-danger"
+								onClick={() => deleteItem(item.description)}
+							>
+								Delete
+							</button>
+						</td>
 					</tr>
 				))}
 				<tr>

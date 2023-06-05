@@ -18,10 +18,31 @@ interface Item {
 }
 
 function App() {
-	const [items, setItems] = useState<Item[]>([])
-	const addItem = (item: Item) => {
-		setItems([...items, item])
-	}
+	const [items, setItems] = useState<Item[]>([
+		{
+			description: 'Milk',
+			amount: 5,
+			category: 'Groceries',
+		},
+		{
+			description: 'Eggs',
+			amount: 10,
+			category: 'Groceries',
+		},
+		{
+			description: 'Electricity',
+			amount: 100,
+			category: 'Utilities',
+		},
+		{
+			description: 'Movies',
+			amount: 15,
+			category: 'Entertainment',
+		},
+	])
+	const addItem = (item: Item) => setItems([...items, item])
+	const deleteItem = (description: string) =>
+		setItems(items.filter(item => item.description !== description))
 
 	const [selectedItem, setSelectedItem] = useState<string>(categories[0])
 	const changeItem = (item: string) => {
@@ -41,6 +62,7 @@ function App() {
 				/>
 				<div className="mt-3">
 					<List
+						deleteItem={deleteItem}
 						items={
 							isAllCategories
 								? items
