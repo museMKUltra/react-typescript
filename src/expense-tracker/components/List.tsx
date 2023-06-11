@@ -45,13 +45,15 @@ function List({ items, deleteItem }: Props) {
 						</td>
 					</tr>
 				))}
+			</tbody>
+			<tfoot>
 				<tr>
 					<th>Total</th>
 					<td>{priceFormat(total)}</td>
 					<td></td>
 					<td></td>
 				</tr>
-			</tbody>
+			</tfoot>
 		</table>
 	)
 }
