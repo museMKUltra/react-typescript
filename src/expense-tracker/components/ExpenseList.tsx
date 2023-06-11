@@ -12,6 +12,10 @@ interface Props {
 }
 
 function ExpenseList({ items, deleteItem }: Props) {
+	if (items.length === 0) {
+		return null
+	}
+
 	const total = items.reduce(
 		(total: number, item: Item) => item.amount + total,
 		0
