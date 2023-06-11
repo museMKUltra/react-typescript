@@ -1,8 +1,8 @@
 import './App.css'
 import { useState } from 'react'
 import Form from './components/Form'
-import Filter from './components/Filter'
-import List from './components/List'
+import Filter from './expense-tracker/components/Filter'
+import List from './expense-tracker/components/List'
 
 const categories = [
 	'All categories',
