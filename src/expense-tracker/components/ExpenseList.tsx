@@ -11,7 +11,7 @@ interface Props {
 	deleteItem: (description: string) => void
 }
 
-function List({ items, deleteItem }: Props) {
+function ExpenseList({ items, deleteItem }: Props) {
 	const total = items.reduce(
 		(total: number, item: Item) => item.amount + total,
 		0
@@ -58,4 +58,4 @@ function List({ items, deleteItem }: Props) {
 	)
 }
 
-export default List
+export default ExpenseList

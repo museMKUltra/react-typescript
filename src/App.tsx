@@ -1,8 +1,8 @@
 import './App.css'
 import { useState } from 'react'
 import Form from './components/Form'
-import Filter from './expense-tracker/components/Filter'
-import List from './expense-tracker/components/List'
+import ExpenseFilter from './expense-tracker/components/ExpenseFilter'
+import ExpenseList from './expense-tracker/components/ExpenseList'
 
 const categories = [
 	'All categories',
@@ -55,13 +55,13 @@ function App() {
 		<div className="p-4">
 			<Form addItem={addItem} />
 			<div className="mt-5">
-				<Filter
+				<ExpenseFilter
 					list={categories}
 					selectedItem={selectedItem}
 					changeItem={changeItem}
 				/>
 				<div className="mt-3">
-					<List
+					<ExpenseList
 						deleteItem={deleteItem}
 						items={
 							isAllCategories

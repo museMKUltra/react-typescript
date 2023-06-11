@@ -6,7 +6,7 @@ interface Props {
 	changeItem: (item: string) => void
 }
 
-function Filter({ list, changeItem, selectedItem }: Props) {
+function ExpenseFilter({ list, changeItem, selectedItem }: Props) {
 	function onChange(data: FieldValues) {
 		changeItem(data.currentTarget.value)
 	}
@@ -24,4 +24,4 @@ function Filter({ list, changeItem, selectedItem }: Props) {
 	)
 }
 
-export default Filter
+export default ExpenseFilter
