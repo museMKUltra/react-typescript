@@ -7,7 +7,10 @@ const schema = z.object({
 	description: z
 		.string()
 		.min(3, { message: 'Description should be at least 3 characters.' }),
-	amount: z.number({ invalid_type_error: 'Amount is required.' }).int(),
+	amount: z
+		.number({ invalid_type_error: 'Amount is required.' })
+		.min(0.01)
+		.max(100_000),
 	category: z.enum(categories, {
 		errorMap: () => ({ message: 'Category is required.' }),
 	}),
