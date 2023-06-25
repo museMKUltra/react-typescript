@@ -1,23 +1,24 @@
 import React from 'react'
 
-interface Item {
+interface Expense {
+	id: number
 	description: string
 	amount: number
 	category: string
 }
 
 interface Props {
-	items: Item[]
-	deleteItem: (description: string) => void
+	expenses: Expense[]
+	deleteItem: (id: number) => void
 }
 
-function ExpenseList({ items, deleteItem }: Props) {
-	if (items.length === 0) {
+function ExpenseList({ expenses, deleteItem }: Props) {
+	if (expenses.length === 0) {
 		return null
 	}
 
-	const total = items.reduce(
-		(total: number, item: Item) => item.amount + total,
+	const total = expenses.reduce(
+		(total: number, item: Expense) => item.amount + total,
 		0
 	)
 	const priceFormat = (price: number) => `$${price.toFixed(2)}`
@@ -33,7 +34,7 @@ function ExpenseList({ items, deleteItem }: Props) {
 				</tr>
 			</thead>
 			<tbody>
-				{items.map(item => (
+				{expenses.map(item => (
 					<tr key={item.description}>
 						<td>{item.description}</td>
 						<td>{priceFormat(item.amount)}</td>
@@ -42,7 +43,7 @@ function ExpenseList({ items, deleteItem }: Props) {
 							<button
 								type="button"
 								className="btn btn-danger"
-								onClick={() => deleteItem(item.description)}
+								onClick={() => deleteItem(item.id)}
 							>
 								Delete
 							</button>
