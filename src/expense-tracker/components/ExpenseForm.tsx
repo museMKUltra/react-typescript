@@ -21,7 +21,7 @@ interface Props {
 	onSubmit: (data: FormData) => void
 }
 
-function Form({ onSubmit }: Props) {
+function ExpenseForm({ onSubmit }: Props) {
 	const {
 		register,
 		handleSubmit,
@@ -79,4 +79,4 @@ function Form({ onSubmit }: Props) {
 	)
 }
 
-export default Form
+export default ExpenseForm

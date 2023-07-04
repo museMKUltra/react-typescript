@@ -1,6 +1,6 @@
 import './App.css'
 import { useState } from 'react'
-import Form from './components/Form'
+import ExpenseForm from './expense-tracker/components/ExpenseForm'
 import ExpenseFilter from './expense-tracker/components/ExpenseFilter'
 import ExpenseList from './expense-tracker/components/ExpenseList'
 
@@ -41,7 +41,7 @@ function App() {
 
 	return (
 		<div className="p-4">
-			<Form onSubmit={item => onSubmit({ ...item, id: newId })} />
+			<ExpenseForm onSubmit={item => onSubmit({ ...item, id: newId })} />
 			<div className="mt-5">
 				<ExpenseFilter
 					list={categories}
