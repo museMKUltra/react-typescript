@@ -15,7 +15,7 @@ function App() {
 				<option value="Clothing">Clothing</option>
 				<option value="Household">Household</option>
 			</select>
-			<ProductList />
+			<ProductList category={category} />
 		</div>
 	)
 }
