@@ -1,15 +1,15 @@
 import './App.css'
-import { useEffect } from 'react'
-
-const connect = () => console.log('Connecting')
-const disconnect = () => console.log('Disconnecting')
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 function App() {
-	useEffect(() => {
-		connect()
+	const [users, setUsers] = useState([])
 
-		return () => disconnect()
-	}, [])
+	useEffect(() => {
+		axios
+			.get('https://jsonplaceholder.typicode.com/users')
+			.then(res => console.log(res))
+	})
 
 	return <div />
 }
